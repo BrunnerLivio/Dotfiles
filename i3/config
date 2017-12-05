@@ -183,7 +183,7 @@ mode "moveit" {
 bindsym $mod+m focus floating; mode "moveit"
 
 
-bindsym $mod+l exec ~/.bin/.locker 
+bindsym $mod+l exec $HOME/.config/i3/lock 
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
