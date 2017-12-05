@@ -24,5 +24,6 @@ git clone https://github.com/BrunnerLivio/Dotfiles.git
 cd Dotfiles
 cp -rf i3 ~/.config/i3
 cp -rf polybar ~/.config/polybar
-cp zsh/* ~
+cp ./zsh/.zshrc $HOME
+cp ./zsh/.zsh_aliases $HOME
 ```
