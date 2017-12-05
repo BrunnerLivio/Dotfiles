@@ -1,0 +1,2 @@
+alias ccat='pygmentize -g'
+alias ai='sudo apt install'
