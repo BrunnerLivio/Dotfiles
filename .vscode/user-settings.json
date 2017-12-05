@@ -1,0 +1,30 @@
+{
+    "explorer.openEditors.visible": 0,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.insertSpaces": true,
+    "git.enableSmartCommit": true,
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "editor.minimap.enabled": false,
+    "vsicons.projectDetection.disableDetect": true,
+    "git.confirmSync": false,
+    "window.zoomLevel": 0,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "docker.showExplorer": false,
+    "gitlens.gitExplorer.enabled": false,
+    "extensions.ignoreRecommendations": true,
+    "cryptoticker.cryptoCurrency": "EUR",
+    "cryptoticker.cryptoExchange": "Coinbase",
+    "workbench.panel.location": "bottom",
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressUpdateNotice": true,
+        "suppressWelcomeNotice": false
+    },
+    "window.menuBarVisibility": "hidden"
+}
