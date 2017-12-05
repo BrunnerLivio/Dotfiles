@@ -1,0 +1,19 @@
+{
+    "recommendations": [
+        "rebornix.project-snippets",
+        "kisstkondoros.vscode-codemetrics",
+        "christian-kohler.path-intellisense",
+        "peterjuras.sort-imports",
+        "natewallace.angular2-inline",
+        "dbaeumer.vscode-eslint",
+        "formulahendry.auto-close-tag",
+        "udayankumar.cryptoticker",
+        "brunnerlivio.materialcolorsnippets",
+        "ms-python.python",
+        "eg2.tslint",
+        "kisstkondoros.typelens",
+        "pflannery.vscode-versionlens",
+        "octref.vetur",
+        "robertohuertasm.vscode-icons"
+    ]
+}

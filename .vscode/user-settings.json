@@ -15,16 +15,21 @@
     "extensions.ignoreRecommendations": true,
     "cryptoticker.cryptoCurrency": "EUR",
     "cryptoticker.cryptoExchange": "Coinbase",
+    "cryptoticker.cryptoSymbols": [
+      "BTC",
+      "ETH",
+      "LTC"
+    ],
     "workbench.panel.location": "bottom",
     "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressUpdateNotice": true,
-        "suppressWelcomeNotice": false
+      "suppressCommitHasNoPreviousCommitWarning": false,
+      "suppressCommitNotFoundWarning": false,
+      "suppressFileNotUnderSourceControlWarning": false,
+      "suppressGitVersionWarning": false,
+      "suppressLineUncommittedWarning": false,
+      "suppressNoRepositoryWarning": false,
+      "suppressUpdateNotice": true,
+      "suppressWelcomeNotice": false
     },
     "window.menuBarVisibility": "hidden"
-}
+  }
