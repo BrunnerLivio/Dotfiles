@@ -121,7 +121,7 @@ type = internal/memory
 format = <label> <bar-used>
 label = RAM
 
-bar-used-width = 30
+bar-used-width = 10
 bar-used-foreground-0 = ${colors.urgent}
 bar-used-foreground-1 = ${colors.urgent_accent_1}
 bar-used-foreground-2 = ${colors.urgent_accent_2}
