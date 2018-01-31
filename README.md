@@ -1,6 +1,6 @@
 # Dotfiles
 
-![Livio Dotfiles](https://i.imgur.com/9Qj8IaF.jpg)
+![Livio Dotfiles](https://i.imgur.com/bJX02NT.png)
 
 ## Dependencies
  - [i3](https://i3wm.org/)
@@ -10,7 +10,9 @@
  - [polybar](https://github.com/jaagr/polybar)
  - [zsh](http://www.zsh.org/)
     - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh): [Installtion](https://github.com/robbyrussell/oh-my-zsh#basic-installation)
+        - [spaceship-prompt](https://github.com/denysdovhan/spaceship-prompt)
     - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting): [Installation](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
+    - [the-fuck](https://github.com/nvbn/thefuck)
 
 ```bash
 pip install Pygments

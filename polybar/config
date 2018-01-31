@@ -1,17 +1,42 @@
 [colors]
-primary = #011d5f
-accent = #fe00fd
-urgent = #1c7ea2
-urgent_accent_1 = #6754C0
-urgent_accent_2 = #B32ADF
+primary = #F2F2F2 
+accent = #111111
+urgent = #2B2B2B
+urgent_accent_1 = #2E2E2E
+urgent_accent_2 = #B8B8B8
+foreground = #000000
 
-[bar/bottom]
+[bar/default]
 monitor = ${env:MONITOR}
 width = 100%
 height = 28 
 
 background = ${colors.primary} 
-foreground = #ccffffff
+foreground = ${colors.foreground}
+
+line-color = #fe00fe 
+line-size = 16 
+
+spacing = 2
+padding-right = 5
+padding-left= 4
+module-margin = 4
+
+font-0 = Roboto:size=8;-1
+font-1 = MaterialIcons:size=10;0
+font-2 = Termsynu:size=8:antialias=false;-2
+font-3 = FontAwesome:size=10;0
+
+modules-left = i3
+modules-right = molior cpu memory volume wireless-network wired-network battery date powermenu
+
+[bar/bitfinex]
+monitor = ${env:MONITOR}
+width = 100%
+height = 28 
+
+background = ${colors.primary} 
+foreground = ${colors.foreground}
 
 line-color = #fe00fe 
 line-size = 16 
@@ -27,7 +52,7 @@ font-2 = Termsynu:size=8:antialias=false;-2
 font-3 = FontAwesome:size=10;0
 
 modules-left = i3 powermenu mpd
-modules-right = cpu memory volume backlight wireless-network wired-network battery date
+modules-right = bitfinex molior cpu memory volume wireless-network wired-network battery date
 
 [module/backlight]
 type = internal/xbacklight
@@ -113,8 +138,9 @@ ramp-coreload-7-foreground = ${colors.accent}
 
 [module/date]
 type = internal/date
-date =    %%{F#99}%d.%m.%Y%%{F-}  %%{F#fff}%H:%M%%{F-}
-date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+date =    %%{F#99}%d.%m.%Y%%{F-}  %%{F${colors.foreground}%H:%M%%{F-}
+date-alt = %%{F${colors.foreground}%A, %d %B %Y  %%{F${colors.foreground}%H:%M%%{F${colors.foreground}:%%{F#fba922}%S%%{F-}
+
 
 [module/memory]
 type = internal/memory
@@ -166,7 +192,7 @@ bar-progress-empty-foreground = #44
 
 [module/wireless-network]
 type = internal/network
-interface = net1
+interface = wlan0 
 interval = 3.0
 ping-interval = 10
 
@@ -247,7 +273,7 @@ menu-2-1-exec = menu_open-0
 [module/clock]
 type = internal/date
 interval = 2
-date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#000}%H:%M%%{F-}
 
 [module/i3]
 type = internal/i3
@@ -298,7 +324,7 @@ label-unfocused = %index%
 label-unfocused-padding = 4
 
 label-focused = %index%
-label-focused-foreground = ${colors.urgent}
+label-focused-foreground = ${colors.primary}
 label-focused-background = ${colors.accent}
 label-focused-padding = 4
 
@@ -306,3 +332,8 @@ label-urgent = %index%
 label-urgent-foreground = #ffffff
 label-urgent-background = ${colors.urgent}
 label-urgent-padding = 4 
+
+[module/bitfinex]
+type = custom/script
+exec = node $HOME/.config/polybar/wallet-sum.js
+tail = true

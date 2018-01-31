@@ -7,8 +7,8 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Launch bar1 and bar2
-MONITOR=eDP-1 polybar bottom &
-MONITOR=DP1 polybar bottom & 
-MONITOR=DP2 polybar bottom &
+MONITOR=eDP-1 polybar default &
+MONITOR=DP1 polybar default & 
+MONITOR=DP2 polybar bitfinex &
 
 echo "Bars launched..."

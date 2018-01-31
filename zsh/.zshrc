@@ -92,4 +92,7 @@ if [ -f ~/.zsh_aliases ]; then
 fi
 
 export SPACESHIP_BATTERY_SHOW=false
-source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+eval $(thefuck --alias)
