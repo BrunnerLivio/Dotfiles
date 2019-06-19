@@ -1,35 +1,119 @@
 {
-    "explorer.openEditors.visible": 0,
-    "workbench.iconTheme": "vscode-icons",
-    "editor.insertSpaces": true,
-    "git.enableSmartCommit": true,
-    "terminal.integrated.shell.linux": "/bin/zsh",
-    "editor.minimap.enabled": false,
-    "vsicons.projectDetection.disableDetect": true,
-    "git.confirmSync": false,
-    "window.zoomLevel": 0,
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Tomorrow Night Blue",
-    "docker.showExplorer": false,
-    "gitlens.gitExplorer.enabled": false,
-    "extensions.ignoreRecommendations": true,
-    "cryptoticker.cryptoCurrency": "EUR",
-    "cryptoticker.cryptoExchange": "Coinbase",
-    "cryptoticker.cryptoSymbols": [
-      "BTC",
-      "ETH",
-      "LTC"
-    ],
-    "workbench.panel.location": "bottom",
-    "gitlens.advanced.messages": {
-      "suppressCommitHasNoPreviousCommitWarning": false,
-      "suppressCommitNotFoundWarning": false,
-      "suppressFileNotUnderSourceControlWarning": false,
-      "suppressGitVersionWarning": false,
-      "suppressLineUncommittedWarning": false,
-      "suppressNoRepositoryWarning": false,
-      "suppressUpdateNotice": true,
-      "suppressWelcomeNotice": false
+  "window.title": "${rootName}",
+  "window.menuBarVisibility": "hidden",
+  "gitlens.keymap": "alternate",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true
+  },
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.overviewRulerBorder": false,
+  "auto-close-tag.activationOnLanguage": ["html", "xml", "php", "javascript"],
+  "git.enableCommitSigning": true,
+  "explorer.confirmDelete": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "python.linting.pylintPath": "/home/brunnerlivio/.local/bin/pylint",
+  "workbench.settings.editor": "json",
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/documentation/**": true
+  },
+  "workbench.activityBar.visible": false,
+  "workbench.statusBar.visible": false,
+  "breadcrumbs.enabled": false,
+  "workbench.editor.showTabs": false,
+  "editor.renderWhitespace": "all",
+  "jest.pathToConfig": "./jest.json",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "explorer.confirmDragAndDrop": false,
+  "git.enableSmartCommit": true,
+  "explorer.openEditors.visible": 0,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.minimap.enabled": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "peacock.favoriteColors": [
+    {
+      "name": "Angular Red",
+      "value": "#b52e31"
     },
-    "window.menuBarVisibility": "hidden"
+    {
+      "name": "Auth0 Orange",
+      "value": "#eb5424"
+    },
+    {
+      "name": "Azure Blue",
+      "value": "#007fff"
+    },
+    {
+      "name": "C# Purple",
+      "value": "#68217A"
+    },
+    {
+      "name": "Gatsby Purple",
+      "value": "#639"
+    },
+    {
+      "name": "Go Cyan",
+      "value": "#5dc9e2"
+    },
+    {
+      "name": "Java Blue-Gray",
+      "value": "#557c9b"
+    },
+    {
+      "name": "JavaScript Yellow",
+      "value": "#f9e64f"
+    },
+    {
+      "name": "Mandalorian Blue",
+      "value": "#1857a4"
+    },
+    {
+      "name": "Node Green",
+      "value": "#215732"
+    },
+    {
+      "name": "React Blue",
+      "value": "#00b3e6"
+    },
+    {
+      "name": "Something Different",
+      "value": "#832561"
+    },
+    {
+      "name": "Vue Green",
+      "value": "#42b883"
+    }
+  ],
+  "workbench.iconTheme": "vscode-icons",
+  "vscode_custom_css.imports": [
+    "file:///home/brunnerlivio/.config/vscode/custom.css",
+    "file:///home/brunnerlivio/.config/vscode/custom.js"
+  ],
+  "vscode_custom_css.policy": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
+}
