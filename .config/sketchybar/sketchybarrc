@@ -1,0 +1,74 @@
+#!/bin/bash
+set -x
+
+# This is a demo config to showcase some of the most important commands.
+# It is meant to be changed and configured, as it is intentionally kept sparse.
+# For a (much) more advanced configuration example see my dotfiles:
+# https://github.com/FelixKratz/dotfiles
+
+source $CONFIG_DIR/colors.sh
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+ITEMS_DIR="$CONFIG_DIR/items"
+
+##### Bar Appearance #####
+# Configuring the general appearance of the bar.
+# These are only some of the options available. For all options see:
+# https://felixkratz.github.io/SketchyBar/config/bar
+# If you are looking for other colors, see the color picker:
+# https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
+
+sketchybar --bar height=30        \
+                 blur_radius=10   \
+                 position=top     \
+                 sticky=off       \
+                 padding_left=10  \
+                 padding_right=10 \
+                 margin=16 \
+                 corner_radius=10 \
+                 y_offset=8 \
+                 color=$BAR_COLOR
+
+##### Changing Defaults #####
+
+default=(
+  padding_left=5
+  padding_right=5
+  icon.font="Hack Nerd Font:Bold:17.0"
+  label.font="Hack Nerd Font:Bold:14.0"
+  icon.color=$WHITE
+  label.color=$WHITE
+  icon.padding_left=4
+  icon.padding_right=4
+  label.padding_left=4
+  label.padding_right=4
+  background.corner_radius=3
+  background.height=24
+)
+sketchybar --default "${default[@]}"
+
+##### Adding Mission Control Space Indicators #####
+# Let's add some mission control spaces:
+# https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
+# to indicate active and available mission control spaces.
+
+
+##### Adding Left Items #####
+
+source $ITEMS_DIR/launcher.sh
+source $ITEMS_DIR/space.sh
+source $ITEMS_DIR/front_app.sh
+
+##### Adding Right Items #####
+
+source $ITEMS_DIR/media.sh
+source $ITEMS_DIR/clock.sh
+# source $ITEMS_DIR/wifi.sh
+source $ITEMS_DIR/battery.sh
+source $ITEMS_DIR/cpu.sh
+source $ITEMS_DIR/volume.sh
+source $ITEMS_DIR/ip_address.sh
+
+
+##### Force all scripts to run the first time (never do this in a script) #####
+sketchybar --update

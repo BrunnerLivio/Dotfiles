@@ -1,0 +1,90 @@
+# (alt) change focus (using arrow keys)
+alt - left  : yabai -m window --focus west
+alt - down  : yabai -m window --focus south
+alt - up    : yabai -m window --focus north
+alt - right : yabai -m window --focus east
+
+# shift window in current workspace
+alt + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+alt + shift - j : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
+alt + shift - k : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
+alt + shift - l : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+
+# alternatively, use the arrow keys
+alt + shift - left : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+alt + shift - down : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
+alt + shift - up : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
+alt + shift - right : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+
+# go back to previous workspace (kind of like back_and_forth in i3)
+# alt - b : yabai -m space --focus recent
+
+# move focused window to previous workspace
+# lctrl + shift - b : yabai -m window --space recent; \
+#                   yabai -m space --focus recent
+
+# move focused window to next/prev workspace
+lctrl + shift - 1 : yabai -m window --space 1
+lctrl + shift - 2 : yabai -m window --space 2
+lctrl + shift - 3 : yabai -m window --space 3
+lctrl + shift - 4 : yabai -m window --space 4
+lctrl + shift - 5 : yabai -m window --space 5
+lctrl + shift - 6 : yabai -m window --space 6
+lctrl + shift - 7 : yabai -m window --space 7
+lctrl + shift - 8 : yabai -m window --space 8
+lctrl + shift - 9 : yabai -m window --space 9
+lctrl + shift - 0 : yabai -m window --space 10
+
+# # mirror tree y-axis
+lctrl + shift - y : yabai -m space --mirror y-axis
+
+# # mirror tree x-axis
+lctrl + shift - x : yabai -m space --mirror x-axis
+
+# balance size of windows
+lctrl + shift - 0 : yabai -m space --balance
+
+# change layout of desktop
+lctrl - e : yabai -m space --layout bsp
+lctrl - l : yabai -m space --layout float
+lctrl - s : yabai -m space --layout stack
+
+# Resize windows
+lctrl + alt - h : yabai -m window --resize left:-50:0; \
+                  yabai -m window --resize right:-50:0
+lctrl + alt - j : yabai -m window --resize bottom:0:50; \
+                  yabai -m window --resize top:0:50
+lctrl + alt - k : yabai -m window --resize top:0:-50; \
+                  yabai -m window --resize bottom:0:-50
+lctrl + alt - l : yabai -m window --resize right:50:0; \
+                  yabai -m window --resize left:50:0
+
+# cycle through stack windows
+lctrl - p : yabai -m window --focus stack.next || yabai -m window --focus south
+lctrl - n : yabai -m window --focus stack.prev || yabai -m window --focus north
+
+# forwards
+# alt - p : yabai -m query --spaces --space \
+#             | jq -re ".index" \
+#             | xargs -I{} yabai -m query --windows --space {} \
+#             | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.x, .id) | reverse | nth(index(map(select(.focused == 1))) - 1).id" \
+#             | xargs -I{} yabai -m window --focus {}
+
+# # backwards
+# alt - n : yabai -m query --spaces --space \
+#             | jq -re ".index" \
+#             | xargs -I{} yabai -m query --windows --space {} \
+#             | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.y, .id) | nth(index(map(select(.focused == 1))) - 1).id" \
+#             | xargs -I{} yabai -m window --focus {}
+
+# close focused window
+alt - w : yabai -m window --close
+
+# enter fullscreen mode for the focused container
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# toggle window native fullscreen
+alt + shift - f : yabai -m window --toggle native-fullscreen
+
+# Open iTerm
+alt - return : open -n /Applications/iTerm.app
