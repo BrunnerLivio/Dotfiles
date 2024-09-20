@@ -32,7 +32,7 @@ lctrl + shift - 5 : yabai -m window --space 5
 lctrl + shift - 6 : yabai -m window --space 6
 lctrl + shift - 7 : yabai -m window --space 7
 lctrl + shift - 8 : yabai -m window --space 8
-lctrl + shift - 9 : yabai -m window --space 9
+# lctrl + shift - 9 : yabai -m window --space 9
 lctrl + shift - 0 : yabai -m window --space 10
 
 # # mirror tree y-axis
