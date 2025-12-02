@@ -56,25 +56,8 @@ yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add title='Settings$' manage=off
 
 # Some Goland settings, in case you are using it. float Goland Preference panes
-yabai -m rule --add app='Goland IDEA' title='^$' manage=off
-yabai -m rule --add app='Goland IDEA' title='Project Structure' manage=off
-yabai -m rule --add app='Goland IDEA' title='Preferences' manage=off
-yabai -m rule --add app='Goland IDEA' title='Edit configuration' manage=off
+abai -m rule --add app='$Satisfactory$' manage=off
 yabai -m rule --add app='PlanetZoo$' manage=off
-
-# Web browsers
-yabai -m rule --add app="^Google Chrome|Firefox$" space=1
-# Text editors
-yabai -m rule --add app="^(Code|RStudio)$" space=2
-# Jetbrains apps
-apps="^(IntelliJ IDEA|WebStorm|RubyMine|PyCharm|DataGrip)$"
-yabai -m rule --add app="${apps}" space=3  manage=off
-# Terminal
-yabai -m rule --add app="^(Alacritty)$" space=4
-# Music
-yabai -m rule --add app="^(Spotify|Amazon Music)$" space=5
-# Social
-yabai -m rule --add app="^(Slack|WhatsApp|Microsoft Teams)$" space=6
 
 yabai -m config external_bar all:32:0
 

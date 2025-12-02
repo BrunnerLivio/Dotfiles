@@ -87,4 +87,5 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 alt + shift - f : yabai -m window --toggle native-fullscreen
 
 # Open iTerm
-alt - return : open -n /Applications/iTerm.app
+alt - return : open -n /Applications/Ghostty.app
+

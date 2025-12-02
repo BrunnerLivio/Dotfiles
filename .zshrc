@@ -1,3 +1,6 @@
+zmodload zsh/zprof
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/brunnerlivio/.zsh/completions:"* ]]; then export FPATH="/Users/brunnerlivio/.zsh/completions:$FPATH"; fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -17,7 +20,7 @@ ZSH_THEME="spaceship"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -51,7 +54,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions sudo python pip git-commit)
+plugins=(git zsh-autosuggestions sudo git-commit)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,53 +113,30 @@ bindkey '\e\e[D' backward-word
 export PATH="$PATH:$HOME/bin"
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 
+# Node
+
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 export PUPPETEER_EXECUTABLE_PATH=`which chromium`
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-PATH=$(pyenv root)/shims:$PATH
-
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
 export COREPACK_ENABLE_STRICT=0
-# Pyenv
-
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 # pnpm
 export PNPM_HOME="/Users/brunnerlivio/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
+# fnm
+eval "$(fnm env --use-on-cd --shell zsh)"
+
 # Deno
 export DENO_INSTALL="/Users/brunnerlivio/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+. "/Users/brunnerlivio/.deno/env"
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Java
-
 export PATH="$HOME/workspace/FHNW/webec/selenium-java-4.21.0:$PATH"
 removeFromPath () {
     export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
@@ -173,13 +153,14 @@ function setjdk() {
   fi
 }
 
+export PATH="$PATH:$HOME/Applications/apache-tomcat-11.0.11/bin"
+
 # PHP
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
 # Python
-
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
@@ -198,10 +179,75 @@ zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug load
 
+# Progress Bar
+export PB_PROFILE=rnw-tp-prod
 
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit
+
+# SSH
 if [ ! -S ~/.ssh/ssh_auth_sock ]; then
-  eval `ssh-agent`
-  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+ eval `ssh-agent`
+ ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
 fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || ssh-add
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# Add any commands which depend on conda here
+lazy_conda_aliases=('python' 'conda')
+
+load_conda() {
+  for lazy_conda_alias in $lazy_conda_aliases
+  do
+    unalias $lazy_conda_alias
+  done
+
+  __conda_prefix="$HOME/.miniconda3" # Set your conda Location
+
+  # >>> conda initialize >>>
+  __conda_setup="$("$__conda_prefix/bin/conda" 'shell.bash' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "$__conda_prefix/etc/profile.d/conda.sh" ]; then
+          . "$__conda_prefix/etc/profile.d/conda.sh"
+      else
+          export PATH="$__conda_prefix/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
+  # <<< conda initialize <<<
+
+  unset __conda_prefix
+  unfunction load_conda
+}
+
+for lazy_conda_alias in $lazy_conda_aliases
+do
+  alias $lazy_conda_alias="load_conda && $lazy_conda_alias"
+done
+# <<< conda initialize <<<
+
+[ -f "/Users/brunnerlivio/.ghcup/env" ] && . "/Users/brunnerlivio/.ghcup/env" # ghcup-env
+
+. "$HOME/.local/bin/env"
+
+
+setjdk 21
+
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/brunnerlivio/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/brunnerlivio/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/brunnerlivio/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/brunnerlivio/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Add JBang to environment
+alias j!=jbang
+export PATH="$HOME/.jbang/bin:$PATH"
+
+zprof
